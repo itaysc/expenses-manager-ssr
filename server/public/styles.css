@@ -1,0 +1,90 @@
+body {
+    background: #2d343d;
+  }
+  
+  .login {
+    margin: 20px auto;
+    width: 300px;
+    padding: 30px 25px;
+    background: white;
+    border: 1px solid #c4c4c4;
+  }
+  
+  h1.login-title {
+    margin: -28px -25px 25px;
+    padding: 15px 25px;
+    line-height: 30px;
+    font-size: 25px;
+    font-weight: 300;
+    color: #ADADAD;
+    text-align:center;
+    background: #f7f7f7;
+   
+  }
+  
+  .login-input {
+    width: 285px;
+    height: 50px;
+    margin-bottom: 25px;
+    padding-left:10px;
+    font-size: 15px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .login-input:focus {
+      border-color:#6e8095;
+      outline: none;
+    }
+  .login-button {
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    background: #f0776c;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer; 
+    outline:0;
+  }
+  
+  .login-lost
+  {
+    text-align:center;
+    margin-bottom:0px;
+  }
+  
+  .login-lost a
+  {
+    color:#666;
+    text-decoration:none;
+    font-size:13px;
+  }
+  .errLbl{
+      color: red;
+      text-align: center;
+  }
+  
+  
+  .table {display:table}
+.tr {display: table-row}
+.thead {display: table-header-group}
+.tbody {display: table-row-group}
+.tfoot 	{display: table-footer-group}
+.tcol{display: table-column}
+.tdgroup {display: table-column-group}
+.td, .th {display: table-cell}
+.tcaption {display: table-caption}
+.margin-top{margin-top:10px;}
+.margin-bottom2em{
+    padding-bottom: 2em;
+}
+.td5, .th5 {display: table-cell; width:5%}
+.td10, .th10 {display: table-cell; width:10%}
+.td20, .th20 {display: table-cell; width:20%}
+.td30, .th30 {display: table-cell; width:30%}
+.td40, .th40 {display: table-cell; width:40%}
+.td50, .th50 {display: table-cell; width:50%}
+/*# sourceMappingURL=styles.css.map*/

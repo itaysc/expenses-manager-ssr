@@ -1,0 +1,19 @@
+.table {display:table}
+.tr {display: table-row}
+.thead {display: table-header-group}
+.tbody {display: table-row-group}
+.tfoot 	{display: table-footer-group}
+.tcol{display: table-column}
+.tdgroup {display: table-column-group}
+.td, .th {display: table-cell}
+.tcaption {display: table-caption}
+.margin-top{margin-top:10px;}
+.margin-bottom2em{
+    padding-bottom: 2em;
+}
+.td5, .th5 {display: table-cell; width:5%}
+.td10, .th10 {display: table-cell; width:10%}
+.td20, .th20 {display: table-cell; width:20%}
+.td30, .th30 {display: table-cell; width:30%}
+.td40, .th40 {display: table-cell; width:40%}
+.td50, .th50 {display: table-cell; width:50%}
