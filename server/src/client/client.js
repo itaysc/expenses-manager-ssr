@@ -15,6 +15,7 @@ import './style/table.css';
 const axiosInstance = axios.create({
   baseURL: '/api'
 });
+
 const initialState = typeof window !== "undefined" && window && window.INITIAL_STATE;
 const store = createStore(
   reducers,

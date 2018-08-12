@@ -19,7 +19,7 @@ export default (req, store, context) => {
   const helmet = Helmet.renderStatic();
 
   return `
-    <html>
+    <!DOCTYPE html>
       <head>
         ${helmet.title.toString()}
         ${helmet.meta.toString()}

@@ -14,19 +14,15 @@ class Login extends Component {
 
       this.submit = this.submit.bind(this);
   }
-
-componentWillReceiveProps(nextProps){
-  if(nextProps.loginData && nextProps.loginData.token && nextProps.loginData.token != -99){
-    console.log(nextProps.loginData.token);
-    this.props.history.push("/dashboard");
+ 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.loginData && nextProps.loginData.token){
+      this.props.history.push("/Dashboard");
+    }
   }
-  else if(nextProps.loginData && nextProps.loginData.token === -99){
-    this.setState({showErr: true})
-  }
-}
 
 submit(){
-    this.props.login({email:this.state.email, password: this.state.password});
+    this.props.signIn({email:this.state.email, password: this.state.password});
 }
 
 onEmailChange = (e)=>{

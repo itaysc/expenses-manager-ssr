@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   '/api',
-  proxy('http://localhost:5000', {
+  proxy('http://localhost:62434/', {
     proxyReqOptDecorator(opts) {
       opts.headers['x-forwarded-host'] = 'localhost:3000';
       return opts;

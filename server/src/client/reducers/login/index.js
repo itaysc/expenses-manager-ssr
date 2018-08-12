@@ -1,8 +1,8 @@
-import {types} from '../../actions/login';
+import types from '../../actions/login/types';
 
 export default (state = {token: null}, action) =>{
     switch(action.type){
-      case types.LOGIN: return {...state, token: action.payload};
+      case types.SAVE_TOKEN: return {...state, token: action.payload}
     }
     return state;
   }

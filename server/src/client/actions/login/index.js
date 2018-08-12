@@ -1,16 +1,23 @@
-export const types ={
-    LOGIN: 'LOGIN'
-} 
-export const login = (credentials) => async (dispatch, getState, api) => {
+import types from './types';
+export const signUp = (req)=> async(dispatch, getState, api) =>{
     try{
-        const res = await api.post('/signin', credentials);
-        dispatch({type: types.LOGIN, payload: res.data.token });
+        let response = await api.post('api/auth/SignUp', req);
+        dispatch({type: types.SIGNUP, payload: res.data});
     }catch(err){
-        dispatch({type: types.LOGIN, payload: -99 });
+        dispatch({type:"API_ERROR", payload: err});
     }
+}
 
-};
-
-function testErr(err){
-    console.log(err);
+export const signIn = (req)=> async(dispatch, getState, api) =>{
+    try{
+        let response = await api.post('api/auth/SignIn', req);
+        if(response.data && response.data.IsOk){
+            dispatch({type:types.SAVE_TOKEN, payload: response.data.Token});
+            
+        }else{
+            throw(response.data);
+        }
+    }catch(err){
+        dispatch({type:"API_ERROR", payload: err});
+    }
 }
