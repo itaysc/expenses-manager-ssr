@@ -14,7 +14,8 @@ export default [
       },
       {
         ...Dashboard,
-        path:'dashboard'
+        path:'/Dashboard',
+        exact: true
       },
       {
         ...Login,

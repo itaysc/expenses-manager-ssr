@@ -12,7 +12,7 @@ class LargeScreenMenu extends Component{
               return(
                 <div key={imageData.href} className="imageColumn">
                     <div className="imageContainer" onClick={() => { this.props.history.push(imageData.href) }}>
-                      <img src={"../src/images/" + imageData.imageName} alt="Avatar" className="image" style={{width:"100%"}}/>
+                      <img src={require("../images/" + imageData.imageName)} alt="Avatar" className="image" style={{width:"100%"}}/>
                       <div className="middle">
                         <div className="imageTextContainer">
                           <div className="imageText">{imageData.imageText}</div>

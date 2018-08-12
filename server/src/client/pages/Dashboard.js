@@ -3,19 +3,16 @@ import { connect } from 'react-redux';
 import menuImageData from '../data/menuData';
 import SmallScreenMenu from '../components/SmallScreenMenu';
 import LargeScreenMenu from '../components/LargeScreenMenu';
-
+import '../style/dashboard.css';
 class Dashboard extends Component {
     constructor(props){
         super(props);
-        this.state={
 
-        }
     }
 
     render(){
         return(
             <div>
-                <div style={{color:'white'}}>asdasdasdasd</div>
                 <div className="hidden-xs hidden-sm">
                      <LargeScreenMenu history={this.props.history} menuItems={menuImageData}/>
                 </div>
