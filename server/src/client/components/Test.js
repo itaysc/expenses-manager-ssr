@@ -17,7 +17,6 @@ class Test extends Component {
 
 componentWillReceiveProps(nextProps){
   if(nextProps.loginData && nextProps.loginData.token && nextProps.loginData.token != -99){
-    console.log(nextProps.loginData.token);
     this.props.history.push("/dashboard");
   }
   else if(nextProps.loginData && nextProps.loginData.token === -99){

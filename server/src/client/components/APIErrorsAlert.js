@@ -7,13 +7,13 @@ class APIErrorsAlert extends Component{
         super(props);
         this.state={
             showMsg: false,
-            data:{Message:""}
+            error:{data:{Message:""}}
         }
     }
 
     componentWillReceiveProps(nextProps){
         if(nextProps.data && nextProps.data != this.state.data){
-            this.setState({data: nextProps.data, showMsg: true});
+            this.setState({error: nextProps.data, showMsg: true});
         }
     }
 
@@ -22,13 +22,14 @@ class APIErrorsAlert extends Component{
     }
 
     render(){
+        let errorMsg = this.state.error && this.state.error.data?this.state.error.data.Message:"";
         return(
             <Modal show={this.state.showMsg}>
                 <Modal.Header>
                     <Modal.Title>Error Occurred</Modal.Title>
                 </Modal.Header>
     
-                <Modal.Body>{this.state.data.Message}</Modal.Body>
+                <Modal.Body>{errorMsg}</Modal.Body>
     
                 <Modal.Footer>
                     <Button onClick={this.onClose}>Close</Button>

@@ -67,6 +67,11 @@ body {
       color: red !important;
       text-align: center !important;
   }
-  
+  .changeMenuView{
+
+  }
+  .smallMenuList{
+    width:100% !important;;
+  }
   
   

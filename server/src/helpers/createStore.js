@@ -5,7 +5,7 @@ import reducers from '../client/reducers';
 
 export default req => {
   const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000/',
+    baseURL: 'http://localhost:62434/',
     headers: { cookie: req.get('cookie') || '' }
   });
 

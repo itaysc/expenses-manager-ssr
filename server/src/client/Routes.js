@@ -3,7 +3,7 @@ import App from './App';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Test from './components/Test';
-
+import MenuItem from './pages//MenuItem';
 export default [
   {
     ...App,
@@ -26,6 +26,11 @@ export default [
         ...Login,
         path: '/login',
         exact: true
+      },
+      {
+        ...MenuItem,
+        path: '/MenuItem/:itemName',
+        exact: false
       },
     ]
   }

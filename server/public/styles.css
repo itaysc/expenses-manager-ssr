@@ -167,7 +167,12 @@
       color: red !important;
       text-align: center !important;
   }
-  
+  .changeMenuView{
+
+  }
+  .smallMenuList{
+    width:100% !important;;
+  }
   
   .table {display:table}
 .tr {display: table-row}

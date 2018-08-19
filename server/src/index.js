@@ -5,6 +5,7 @@ import proxy from 'express-http-proxy';
 import Routes from './client/Routes';
 import renderer from './helpers/renderer';
 import createStore from './helpers/createStore';
+import Cookies from 'universal-cookie';
 
 const app = express();
 
@@ -18,14 +19,25 @@ app.use(
   })
 );
 app.use(express.static('public'));
+
+app.post("enableUser", (req, res)=>{
+  let token = req.token;
+  cookies.set('token', token, { path: '/' });
+})
+
+app.post("getUser", (req, res)=>{
+  const cookies = new Cookies(req.headers.cookie);
+  return cookies.get('token');
+})
+
 app.get('*', (req, res) => {
   
   const store = createStore(req);
 
   const promises = matchRoutes(Routes, req.path)
     .map(({ route }) => {
-      console.log(`req.path is: ${req.path}`)
-      return route.loadData ? route.loadData(store) : null;
+      //console.log(`req.path is: ${req.path}`)
+      return route.loadData ? route.loadData(store, req) : null;
     })
     .map(promise => {
       if (promise) {
