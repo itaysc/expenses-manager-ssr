@@ -19,7 +19,7 @@ static defaultProps = {
         <ListGroup className={"col-lg-6 col-md-6 col-sm-12 col-xs-12 smallMenuList"}>
         {
           this.props.userCategories.map((item, index)=>{
-            return <ListGroupItem key={item.Name + index} href={"/MenuItem/" +item.Name} >
+            return <ListGroupItem key={item.Name + index} href={"/MenuItem/" +item.ItemId} >
                     <span className="bold">{item.Name}</span>
                     </ListGroupItem>;
           })

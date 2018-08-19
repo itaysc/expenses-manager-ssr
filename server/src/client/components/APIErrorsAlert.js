@@ -7,22 +7,33 @@ class APIErrorsAlert extends Component{
         super(props);
         this.state={
             showMsg: false,
-            error:{data:{Message:""}}
+            data:{Message:""}
         }
     }
 
-    componentWillReceiveProps(nextProps){
-        if(nextProps.data && nextProps.data != this.state.data){
-            this.setState({error: nextProps.data, showMsg: true});
+    static getDerivedStateFromProps(nextProps, nextState){
+        if(nextProps.data && nextProps.data.data != nextState.data){
+            return {
+                data: nextProps.data.data, 
+                showMsg: true
+            }
         }
+
+        return null;
     }
+
+    // componentWillReceiveProps(nextProps){
+    //     if(nextProps.data && nextProps.data != this.state.data){
+    //         this.setState({error: nextProps.data, showMsg: true});
+    //     }
+    // }
 
     onClose = ()=>{
         this.setState({showMsg: false});
     }
 
     render(){
-        let errorMsg = this.state.error && this.state.error.data?this.state.error.data.Message:"";
+        let errorMsg = this.state.data?this.state.data.Message:"";
         return(
             <Modal show={this.state.showMsg}>
                 <Modal.Header>

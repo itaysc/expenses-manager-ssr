@@ -9,11 +9,20 @@ export const getItemData = (itemName)=> async(dispatch, getState, api) =>{
             throw({message: "Unauthorized."});
         }
         
-        dispatch({type: types.GET_ITEM_DATA, payload: res.data});
+         dispatch({type: types.GET_ITEM_DATA, payload: res.data});
+    }catch(err){
+         dispatch({type:"API_ERROR", payload: new APIError(err.message, err)});
+    }
+}
+
+export const fetchItemData = (itemId)=>{
+    try{
+
     }catch(err){
         dispatch({type:"API_ERROR", payload: new APIError(err.message, err)});
     }
 }
+
 export const getUserCategories = (token = null)=> async(dispatch, getState, api) =>{
     try{
         let state = getState();

@@ -15,11 +15,19 @@ class Login extends Component {
       this.submit = this.submit.bind(this);
   }
  
-  componentWillReceiveProps(nextProps){
+  static getDerivedStateFromProps(nextProps, nextState){
     if(nextProps.loginData && nextProps.loginData.token){
-      this.props.history.push("/Dashboard");
+      nextProps.history.push("/Dashboard");
     }
+
+    return null;
   }
+
+  // componentWillReceiveProps(nextProps){
+  //   if(nextProps.loginData && nextProps.loginData.token){
+  //     this.props.history.push("/Dashboard");
+  //   }
+  // }
 
 submit(){
     this.props.signIn({email:this.state.email, password: this.state.password});
