@@ -5,21 +5,21 @@ import Dashboard from './pages/Dashboard';
 import MenuItem from './pages//MenuItem';
 export default [
   {
+    ...Login,
+    path: '/',
+    exact: true
+  },
+  {
+    ...Login,
+    path: '/login',
+    exact: true
+  },
+  {
     ...App,
     routes: [
       {
-        ...Login,
-        path: '/',
-        exact: true
-      },
-      {
         ...Dashboard,
         path:'/Dashboard',
-        exact: true
-      },
-      {
-        ...Login,
-        path: '/login',
         exact: true
       },
       {

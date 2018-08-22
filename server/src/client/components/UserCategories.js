@@ -3,7 +3,7 @@ import {ListGroup, ListGroupItem } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-class SmallScreenMenu extends Component{
+class UserCategories extends Component{
   constructor(props){
     super(props);
   }
@@ -19,6 +19,7 @@ static defaultProps = {
       <center>
         <ListGroup className={"col-lg-6 col-md-6 col-sm-12 col-xs-12 smallMenuList"}>
         {
+          this.props.userCategories &&
           this.props.userCategories.map((item, index)=>{
             return <ListGroupItem key={item.Name + index} >
                     <Link to={"/MenuItem/" +item.ItemId}>
@@ -33,4 +34,4 @@ static defaultProps = {
   }
 }
 
-export default SmallScreenMenu;
+export default UserCategories;

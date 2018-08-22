@@ -31,6 +31,8 @@ export const GetOutcomesItemData = (ItemId, token = null)=> (dispatch, getState,
             }
             api.post('api/MenuItems/GetOutcomesItemData', req).then(response=>{
                 dispatch({type: types.GET_ITEM_DATA, payload: response.data});
+            }).catch(err=>{
+                console.log(err)
             });
             
         }else{
