@@ -9,6 +9,13 @@ export const getCookie = (req)=> async(dispatch, getState, api) =>{
         cookies.set('token', response.data.Token, { path: '/' });
 
     }catch(err){
-        dispatch({type:"API_ERROR", payload: err});
+        dispatch({type:types.API_ERROR, payload: err});
+    }
+}
+
+export const setIsServerRefresh = (val)=>{
+    return {
+        type: types.SERVER_REFRESH,
+        payload: val
     }
 }

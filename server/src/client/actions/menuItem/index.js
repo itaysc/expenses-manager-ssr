@@ -1,17 +1,45 @@
 import types from './types';
 import APIError from '../APIError';
-export const getItemData = (itemName)=> async(dispatch, getState, api) =>{
+import axios from 'axios';
+export const GetOutcomesItemData2 = (ItemId, token = null)=> async(dispatch, getState, api) =>{
     try{
         let state = getState();
-        if(state.loginData.token){
-            let response = await api.post('api/MenuItems/GetItemData', req);
+        if(token || state.loginData.token){
+            let req = {
+                ItemId,
+                Token: token?token: state.loginData.token
+            }
+            let response = await api.post('api/MenuItems/GetOutcomesItemData', req);
+            
         }else{
-            throw({message: "Unauthorized."});
+            throw({Message: "Unauthorized.", errorCode:401});
         }
         
-         dispatch({type: types.GET_ITEM_DATA, payload: res.data});
+         dispatch({type: types.GET_ITEM_DATA, payload: response.data});
     }catch(err){
-         dispatch({type:"API_ERROR", payload: new APIError(err.message, err)});
+         dispatch({type:"API_ERROR", payload: new APIError(err)});
+    }
+}
+
+export const GetOutcomesItemData = (ItemId, token = null)=> (dispatch, getState, api) =>{
+    try{
+        let state = getState();
+        if(token || state.loginData.token){
+            let req = {
+                ItemId,
+                Token: token?token: state.loginData.token
+            }
+            api.post('api/MenuItems/GetOutcomesItemData', req).then(response=>{
+                dispatch({type: types.GET_ITEM_DATA, payload: response.data});
+            });
+            
+        }else{
+            throw({Message: "Unauthorized.", errorCode:401});
+        }
+        
+        
+    }catch(err){
+         dispatch({type:"API_ERROR", payload: new APIError(err)});
     }
 }
 

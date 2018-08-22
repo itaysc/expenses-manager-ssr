@@ -72,6 +72,7 @@ const mapDispatchToProps = (dispatch)=>{
 }
 
 const loadData = (store, req)=>{
+    console.log(`inside Dashboard loadData`);
     const cookies = new Cookies(req.headers.cookie);
     let token = cookies.get('token');
     if(token){

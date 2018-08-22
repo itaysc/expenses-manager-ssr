@@ -1,0 +1,4 @@
+export default {
+    API_ERROR: "API_ERROR",
+    SERVER_REFRESH: "SERVER_REFRESH"
+}

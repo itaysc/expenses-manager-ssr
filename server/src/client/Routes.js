@@ -8,13 +8,13 @@ export default [
     ...App,
     routes: [
       {
-        ...Dashboard,
-        path:'/Dashboard',
+        ...Login,
+        path: '/',
         exact: true
       },
       {
-        ...Login,
-        path: '/',
+        ...Dashboard,
+        path:'/Dashboard',
         exact: true
       },
       {
