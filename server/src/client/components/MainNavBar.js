@@ -29,6 +29,10 @@ class MainNavBar extends Component{
         this.props.history.push('/AllCategories');
     }
 
+    goToDashboard = ()=>{
+        this.props.history.push('/Dashboard');
+    }
+
     selectCategory(href){
         this.props.history.push(href);
     }
@@ -42,8 +46,8 @@ class MainNavBar extends Component{
                 </Navbar.Brand>
             </Navbar.Header>
             <Nav>
-                <NavItem eventKey={1} href="#">
-                Link
+                <NavItem eventKey={1} onClick={this.goToDashboard}>
+                Dashboard
                 </NavItem>
                 <NavItem eventKey={2} href="#">
                 Link

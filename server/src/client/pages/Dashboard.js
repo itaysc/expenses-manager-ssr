@@ -11,6 +11,7 @@ import '../style/dashboard.css';
 import Cookies from 'universal-cookie';
 import MainNavBar from '../components/MainNavBar';
 import {setIsServerRefresh} from '../actions/server';
+import * as actions from '../actions/dashboard';
 const DISPLAYS ={LIST: 1, ICONS:2};
 class Dashboard extends Component {
     constructor(props){
@@ -30,6 +31,7 @@ class Dashboard extends Component {
     }
     componentDidMount(){
         this.props.getUserCategories();
+        this.props.getDashboardData();
     }
     changeDisplay = ()=>{
         if(this.state.currDisplay === DISPLAYS.ICONS){
@@ -41,23 +43,7 @@ class Dashboard extends Component {
     render(){
         return(
             <Fragment>
-                <div className="hidden-xs hidden-sm">
-                     <Button className="changeMenuView" onClick={this.changeDisplay}>
-                        <Glyphicon glyph={this.state.currDisplay === DISPLAYS.ICONS?"th-list": "picture"}/>
-                     </Button>
-                     {
-                         this.state.currDisplay === DISPLAYS.ICONS &&
-                        //  <LargeScreenMenu userCategories = {this.props.userCategories} history={this.props.history} menuItems={menuImageData}/>
-                        <UserCategories userCategories = {this.props.userCategories} history={this.props.history} menuItems={menuImageData}/>
-                     }
-                                          {
-                         this.state.currDisplay === DISPLAYS.LIST &&
-                         <UserCategories userCategories = {this.props.userCategories} history={this.props.history} menuItems={menuImageData}/>
-                        }
-                </div>
-                <div className="hidden-md hidden-lg">
-                     <UserCategories userCategories = {this.props.userCategories} history={this.props.history} menuItems={menuImageData}/>
-                </div>
+                <span>This month Total Expenses: </span>
             </Fragment>
         );
     }
@@ -70,6 +56,7 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispatch)=>{
     return bindActionCreators({
+        ...actions,
         getUserCategories
     }, dispatch)
 }

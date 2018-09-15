@@ -13,7 +13,7 @@ export const signUp = (req)=> async(dispatch, getState, api) =>{
 export const signIn = (req)=> async(dispatch, getState, api) =>{
     try{
         let response = await api.post('api/auth/SignIn', req);
-        if(response.data && response.data.IsOk){
+        if(response.status === 200){
             dispatch({type:types.SAVE_TOKEN, payload: response.data.Token});
             const cookies = new Cookies();
             cookies.set('token', response.data.Token, { path: '/' });
