@@ -18,6 +18,15 @@ app.use(
     }
   })
 );
+app.use(
+  '/gql',
+  proxy('http://localhost:4000/graphql/', {
+    proxyReqOptDecorator(opts) {
+      opts.headers['x-forwarded-host'] = 'localhost:3000';
+      return opts;
+    }
+  })
+);
 app.use(express.static('public'));
 
 app.post("enableUser", (req, res)=>{

@@ -12,16 +12,20 @@ import Routes from './Routes';
 import reducers from './reducers';
 import './style/main.css';
 import './style/table.css';
-const axiosInstance = axios.create({
+
+const api = axios.create({
   baseURL: '/api'
 });
 
+const gql = axios.create({
+  baseURL: '/gql/graphql'
+});
 
 const initialState = typeof window !== "undefined" && window && window.INITIAL_STATE;
 const store = createStore(
   reducers,
   initialState,
-  applyMiddleware(thunk.withExtraArgument(axiosInstance))
+  applyMiddleware(thunk.withExtraArgument({api, gql}))
 );
 
 ReactDOM.hydrate(

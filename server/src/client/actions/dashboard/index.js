@@ -2,7 +2,7 @@ import types from './types';
 import APIError from '../APIError';
 import Cookies from 'universal-cookie';
 
-export const getDashboardData = (token = null)=> async(dispatch, getState, api) =>{
+export const getDashboardData = (token = null)=> async(dispatch, getState, {api}) =>{
     try{
         let state = getState();
         if(token || state.loginData.token){

@@ -1,7 +1,7 @@
 import types from './types';
 import APIError from '../APIError';
 import axios from 'axios';
-export const GetOutcomesItemData2 = (ItemId, token = null)=> async(dispatch, getState, api) =>{
+export const GetOutcomesItemData2 = (ItemId, token = null)=> async(dispatch, getState, {api}) =>{
     try{
         let state = getState();
         if(token || state.loginData.token){
@@ -21,7 +21,7 @@ export const GetOutcomesItemData2 = (ItemId, token = null)=> async(dispatch, get
     }
 }
 
-export const GetOutcomesItemData = (ItemId, token = null)=> (dispatch, getState, api) =>{
+export const GetOutcomesItemData = (ItemId, token = null)=> (dispatch, getState, {api}) =>{
     try{
         let state = getState();
         if(token || state.loginData.token){
@@ -53,7 +53,7 @@ export const fetchItemData = (itemId)=>{
     }
 }
 
-export const getUserCategories = (token = null)=> async(dispatch, getState, api) =>{
+export const getUserCategories = (token = null)=> async(dispatch, getState, {api}) =>{
     try{
         let state = getState();
         if(token || state.loginData.token){

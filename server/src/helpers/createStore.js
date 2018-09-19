@@ -4,15 +4,19 @@ import axios from 'axios';
 import reducers from '../client/reducers';
 
 export default req => {
-  const axiosInstance = axios.create({
+  const api = axios.create({
     baseURL: 'http://localhost:62434/',
     headers: { cookie: req.get('cookie') || '' }
   });
 
+  const gql = axios.create({
+    baseURL: 'http://localhost:4000/graphql',
+    headers: { cookie: req.get('cookie') || '' }
+  });
   const store = createStore(
     reducers,
     {},
-    applyMiddleware(thunk.withExtraArgument(axiosInstance))
+    applyMiddleware(thunk.withExtraArgument({api, gql}))
   );
 
   return store;

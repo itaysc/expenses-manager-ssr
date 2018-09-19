@@ -20,14 +20,16 @@ class Login extends Component {
       nextProps.history.push("/Dashboard");
     }
 
+    if(nextProps.loginData && nextProps.loginData.gqlData){
+      alert(nextProps.loginData.gqlData);
+    }
+
     return null;
   }
 
-  // componentWillReceiveProps(nextProps){
-  //   if(nextProps.loginData && nextProps.loginData.token){
-  //     this.props.history.push("/Dashboard");
-  //   }
-  // }
+  componentDidMount(){
+   // this.props.testGql();
+  }
 
 submit(){
     this.props.signIn({email:this.state.email, password: this.state.password});
