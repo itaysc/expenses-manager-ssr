@@ -6,10 +6,10 @@ export const getDashboardData = (token = null)=> async(dispatch, getState, {api}
     try{
         let state = getState();
         if(token || state.loginData.token){
-            let req = {
-                Token: token?token: state.loginData.token
-            }
-            let response = await api.post('api/Dashboard/GetDashboardData', req);
+            // let req = {
+            //     Token: token?token: state.loginData.token
+            // }
+            let response = await api.get('api/Dashboard/GetDashboardData', {});
             dispatch({type: types.GET_DASHBOARD_DATA, payload: response.data});
         }else{
             throw({Message: "Unauthorized.", errorCode:401});

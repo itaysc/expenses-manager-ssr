@@ -50,7 +50,9 @@ class Dashboard extends Component {
 }
 const mapStateToProps = (state)=>{
     return{
-        userCategories: state.menuItemData && state.menuItemData.userCategories? state.menuItemData.userCategories: []
+        userCategories: state.menuItemData && state.menuItemData.userCategories? 
+                state.menuItemData.userCategories: [],
+        data: state.dashboardData
     }
 }
 
@@ -69,7 +71,8 @@ const loadData = (store, req)=>{
         console.log(`inside Dashboard loadData. token ${token}`);
         return Promise.all([
             store.dispatch(getUserCategories(token)),
-            store.dispatch(setIsServerRefresh(true))
+            store.dispatch(setIsServerRefresh(true)),
+            store.dispatch(actions.getDashboardData(token))
         ])
     }
 }
