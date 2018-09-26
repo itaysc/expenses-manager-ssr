@@ -12,14 +12,27 @@ import Routes from './Routes';
 import reducers from './reducers';
 import './style/main.css';
 import './style/table.css';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 const api = axios.create({
-  baseURL: '/api'
+  baseURL: '/api',
+  headers: {
+    'Content-Type': 'application/json',
+  }
 });
 
 const gql = axios.create({
   baseURL: '/gql/graphql'
 });
+
+  // Set the AUTH token for any request
+  api.interceptors.request.use(function (config) {
+    const token = cookies.get("token");
+    config.headers.Authorization =  token ? `Bearer ${token}` : '';
+    return config;
+  });
 
 const initialState = typeof window !== "undefined" && window && window.INITIAL_STATE;
 const store = createStore(

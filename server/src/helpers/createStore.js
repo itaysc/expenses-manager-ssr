@@ -6,13 +6,16 @@ import reducers from '../client/reducers';
 export default req => {
   const api = axios.create({
     baseURL: 'http://localhost:62434/',
-    headers: { cookie: req.get('cookie') || '' }
+    headers: {
+      'Content-Type': 'application/json',
+    }
   });
 
   const gql = axios.create({
     baseURL: 'http://localhost:4000/graphql',
     headers: { cookie: req.get('cookie') || '' }
   });
+
   const store = createStore(
     reducers,
     {},

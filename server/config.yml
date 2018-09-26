@@ -1,0 +1,7 @@
+host: localhost
+port:3000
+rotationDuration: 8000
+dashboards:
+  columns: 4
+  rows:3
+  widgets[]
