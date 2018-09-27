@@ -21,6 +21,8 @@ class APIErrorsAlert extends Component{
                     nextProps.history.push("/login");
                     nextProps.hideApiErrorMessage();
                 }, 3000)
+
+                return null;
             }
             return {
                 data: nextProps.data.data, 
@@ -31,11 +33,7 @@ class APIErrorsAlert extends Component{
         return null;
     }
 
-    // componentWillReceiveProps(nextProps){
-    //     if(nextProps.data && nextProps.data != this.state.data){
-    //         this.setState({error: nextProps.data, showMsg: true});
-    //     }
-    // }
+
 
     onClose = ()=>{
        // this.setState({showMsg: false});

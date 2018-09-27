@@ -55,10 +55,12 @@ export const fetchItemData = (itemId)=>{
 
 export const getUserCategories = (token = null)=> async(dispatch, getState, {api}) =>{
     try{
-        let state = getState();
+        //let state = getState();
         //if(token || state.loginData.token){
         //    let req={Token: token?token: state.loginData.token}
+        
             let response = await api.get('api/MenuItems/GetUserCategories');
+
             dispatch({type: types.GET_USER_CATEGORIES, payload: response.data.Categories});
      //   }else{
             //throw({Message: "Unauthorized.", errorCode:401});

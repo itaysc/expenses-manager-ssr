@@ -12,6 +12,7 @@ import Cookies from 'universal-cookie';
 import MainNavBar from '../components/MainNavBar';
 import {setIsServerRefresh} from '../actions/server';
 import * as actions from '../actions/dashboard';
+import Cube from '../components/ui/Cube';
 const DISPLAYS ={LIST: 1, ICONS:2};
 class Dashboard extends Component {
     constructor(props){
@@ -43,7 +44,15 @@ class Dashboard extends Component {
     render(){
         return(
             <Fragment>
-                <span>This month Total Expenses: </span>
+                {
+                    this.props.data && 
+                <Cube renderLeft={()=>{
+                    return (
+                        <p>{this.props.data.data.TotalYearExpenses}</p>
+                    )
+                }}/>
+                }
+
             </Fragment>
         );
     }

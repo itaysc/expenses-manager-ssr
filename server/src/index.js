@@ -6,7 +6,7 @@ import Routes from './client/Routes';
 import renderer from './helpers/renderer';
 import createStore from './helpers/createStore';
 import Cookies from 'universal-cookie';
-
+import serialize from 'serialize-javascript';
 const app = express();
 
 app.use(
@@ -29,12 +29,18 @@ app.use(
 );
 app.use(express.static('public'));
 
-app.post("enableUser", (req, res)=>{
-  let token = req.token;
-  cookies.set('token', token, { path: '/' });
+app.post("/enableUser", (req, res)=>{
+  try{
+    const cookies = new Cookies();
+    let token = req.headers.cookie.toString().replace("token=","");
+    cookies.set('token', token, { path: '/' });
+  }catch(err){
+    console.log(err);
+  }
+
 })
 
-app.post("getUser", (req, res)=>{
+app.post("/getUser", (req, res)=>{
   const cookies = new Cookies(req.headers.cookie);
   return cookies.get('token');
 })

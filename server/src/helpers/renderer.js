@@ -17,7 +17,6 @@ export default (req, store, context) => {
   );
 
   const helmet = Helmet.renderStatic();
-
   return `
     <!DOCTYPE html>
       <head>

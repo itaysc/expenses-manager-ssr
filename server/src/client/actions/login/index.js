@@ -1,6 +1,7 @@
 import types from './types';
 import APIError from '../APIError';
 import Cookies from 'universal-cookie';
+import axios from 'axios';
 export const signUp = (req)=> async(dispatch, getState, {api}) =>{
     try{
         let response = await api.post('api/auth/SignUp', req);
@@ -19,6 +20,7 @@ export const signIn = (req)=> async(dispatch, getState, {api}) =>{
             dispatch({type:types.SAVE_TOKEN, payload: response.data.Token});
             const cookies = new Cookies();
             cookies.set('token', response.data.Token, { path: '/' });
+            axios.post('/enableUser', {token:response.data.Token.token});
         }else{
             throw(new APIError(response.data, null));
         }
