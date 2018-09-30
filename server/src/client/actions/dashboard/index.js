@@ -17,7 +17,7 @@ export function getDashboardData(){
           //  }
         }catch(err){
             console.log(err)
-             dispatch({type:"API_ERROR", payload: new APIError(err)});
+             dispatch({type:"API_ERROR", payload: new APIError({Message: "Unauthorized.", errorCode:401})});
         }
     }
 }

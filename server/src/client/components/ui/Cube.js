@@ -10,7 +10,7 @@ function Cube(props){
         fontSize:props.fontSize
     }
     return(
-        <Jumbotron style={style} className='cube'>
+        <Jumbotron style={style} className={'cube ' + props.className}>
             <div className="pull-left">
                 {props.renderLeft()}
             </div>
@@ -27,7 +27,8 @@ Cube.propTypes = {
     width: PropTypes.string,
     height: PropTypes.string,
     backColor: PropTypes.string,
-    fontSize: PropTypes.string
+    fontSize: PropTypes.string,
+    className: PropTypes.string
 }
 
 Cube.defaultProps = {
@@ -36,7 +37,8 @@ Cube.defaultProps = {
     width: "130px",
     height: "25px",
     backColor: "#fff",
-    fontSize:"12px"
+    fontSize:"12px",
+    className:""
 }
 
 export default Cube;
